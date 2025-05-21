@@ -2,7 +2,8 @@ import os
 import re
 import heroku3
 from dotenv import load_dotenv
-from yt_dlp import YoutubeDL
+import yt_dlp as youtube_dl
+YoutubeDL = youtube_dl.YoutubeDL
 
 load_dotenv()
 

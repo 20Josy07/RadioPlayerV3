@@ -5,7 +5,7 @@ heroku3
 requests
 Pyrogram
 TgCrypto
-youtube_dl
+yt-dlp
 ffmpeg-python
 python-dotenv
 youtube_search

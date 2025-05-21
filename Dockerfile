@@ -1,15 +1,15 @@
 # Debian Based Docker
 FROM debian:latest
 
-# Update and install necessary system packages
+# Update and install necessary system packages, including python3-venv
 RUN apt update && apt upgrade -y && apt install -y git curl python3 python3-pip python3-venv ffmpeg
 
 # Create and activate a virtual environment
 RUN python3 -m venv /venv
 ENV PATH="/venv/bin:$PATH"
 
-# Upgrade pip and install wheel in the virtual environment
-RUN pip install --upgrade pip wheel
+# Upgrade pip in the virtual environment
+RUN pip install --upgrade pip
 
 # Copy requirements file
 COPY requirements.txt /requirements.txt

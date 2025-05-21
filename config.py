@@ -20,7 +20,7 @@ import os
 import re
 import heroku3
 from dotenv import load_dotenv
-from youtube_dl import YoutubeDL
+from yt_dlp import YoutubeDL
 
 load_dotenv()
 

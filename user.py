@@ -5,7 +5,8 @@ REPLY_MESSAGE=Config.REPLY_MESSAGE
 
 if REPLY_MESSAGE is not None:
     USER = Client(
-        Config.SESSION,  # This is the long session string
+        "user_session",  # A short, valid session name
+        session_string=Config.SESSION,  # The session string goes here
         api_id=Config.API_ID,
         api_hash=Config.API_HASH
         plugins=dict(root="plugins.userbot")

@@ -1,26 +1,23 @@
 # Debian Based Docker
 FROM debian:latest
 
-# Update and upgrade the system
-RUN apt update && apt upgrade -y
-
-# Install required packages, including python3-venv for virtual environments
-RUN apt install git curl python3 python3-pip python3-venv ffmpeg -y
+# Update and install necessary system packages
+RUN apt update && apt upgrade -y && apt install -y git curl python3 python3-pip python3-venv ffmpeg
 
 # Create and activate a virtual environment
 RUN python3 -m venv /venv
 ENV PATH="/venv/bin:$PATH"
 
-# Upgrade pip within the virtual environment
-RUN pip install --upgrade pip
+# Upgrade pip and install wheel in the virtual environment
+RUN pip install --upgrade pip wheel
 
 # Copy requirements file
 COPY requirements.txt /requirements.txt
 
-# Install Python dependencies from requirements.txt in the virtual environment
+# Install Python dependencies in the virtual environment
 RUN pip install -U -r /requirements.txt
 
-# Create working directory and copy start script
+# Set up working directory and copy start script
 RUN mkdir /RadioPlayerV3
 WORKDIR /RadioPlayerV3
 COPY start.sh /start.sh

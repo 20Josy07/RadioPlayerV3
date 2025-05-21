@@ -17,11 +17,12 @@ COPY requirements.txt /requirements.txt
 # Install Python dependencies in the virtual environment
 RUN pip install -U -r /requirements.txt
 
-# Set up working directory and copy start script
-RUN mkdir /RadioPlayerV3
+# Copy all application files to the working directory
+COPY . /RadioPlayerV3/
+
+# Set up working directory
 WORKDIR /RadioPlayerV3
-COPY start.sh /start.sh
-RUN chmod +x /start.sh
+RUN chmod +x /RadioPlayerV3/start.sh
 
 # Run the Radio Player Bot
-CMD ["/bin/bash", "/start.sh"]
+CMD ["/RadioPlayerV3/start.sh"]

@@ -8,7 +8,7 @@ RUN apt update && apt upgrade -y && apt install -y git curl python3 python3-pip 
 RUN python3 -m venv /venv
 ENV PATH="/venv/bin:$PATH"
 
-# Upgrade pip in the virtual environment
+# Upgrade pip in the virtual environment (replaces the problematic pip3 install)
 RUN pip install --upgrade pip
 
 # Copy requirements file

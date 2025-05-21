@@ -35,7 +35,7 @@ from pytgcalls import GroupCallFactory
 from config import Config
 from asyncio import sleep
 from pyrogram import Client
-from youtube_dl import YoutubeDL
+from yt_dlp import YoutubeDL
 from signal import SIGINT
 from random import randint
 from pyrogram.errors import FloodWait
